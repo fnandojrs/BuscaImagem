@@ -1,0 +1,14 @@
+input.form-control {
+    text-align: center;
+    text-transform: uppercase;
+}
+#escolha{
+    margin-top: 5%;
+    margin-left: 2%;
+}
+.input-group.input-group-lg {
+    margin-top: 2%;
+}
+span#inputGroup-sizing-lg {
+    color: blue;
+}
