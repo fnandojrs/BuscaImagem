@@ -12,3 +12,6 @@ input.form-control {
 span#inputGroup-sizing-lg {
     color: blue;
 }
+input#myInput {
+    font-size: 5rem;
+}
