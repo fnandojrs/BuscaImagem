@@ -1,15 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de enviar dados para o PHP usando JavaScript</title>
+</head>
+<body>
+	<form>
+		<label for="nome">Digite seu nome:</label>
+		<input type="text" id="nome" name="nome">
+		<button type="button" onclick="enviarDados()">Enviar</button>
+	</form>
 
-<?php
-function retorna_texto($arg1, $arg2) {
-    // código para gerar o texto aqui
-    $arg1 = 'teste';
-    $arg2 = 'teste2';
+	<script>
+		function enviarDados() {
+			// Obtém o valor do input
+			var nome = document.getElementById("nome").value;
 
-    $texto = "$arg1 $arg2";
-    echo $texto; // imprime o valor retornado
-    return $texto; 
+			// Cria uma requisição AJAX
+			var xhr = new XMLHttpRequest();
 
-    // echo json_encode($nome_arquivo); 
-}
+			// Define a URL do arquivo PHP que receberá os dados
+			var url = "processar_dados.php";
 
-?>
+			// Define o método de envio e a URL da requisição AJAX
+			xhr.open("POST", url, true);
+
+			// Define o cabeçalho da requisição
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+			// Define o callback da requisição
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// Exibe a resposta do servidor
+					alert(xhr.responseText);
+				}
+			};
+
+			// Envia a requisição AJAX com os dados do input
+			xhr.send("nome=" + nome);
+		}
+	</script>
+</body>
+</html>

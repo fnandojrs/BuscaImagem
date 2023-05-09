@@ -16,5 +16,4 @@ $senha_banco = "masterkey";
 
 $firebird = ibase_connect($ip_banco,$usuario_banco,$senha_banco) or die('Banco de dados indisponível. Entre em contato com o suporte para verificar.');
 
-
 ?>
